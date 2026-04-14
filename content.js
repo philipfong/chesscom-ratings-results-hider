@@ -19,7 +19,8 @@ const SELECTOR_GROUPS = {
     '.profile-layout #profile-sidebar',
     '#profile-main .game-parent',
     '#profile-main .overview-main-stats-badges',
-    '.stats-component'
+    '.stats-component',
+    '.sidebar-section[data-cy="stats"]'
   ]
 }
 
