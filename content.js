@@ -15,6 +15,7 @@ const SELECTOR_GROUPS = {
   ],
   stats: [
     '.cc-section[vsstats="false"]',
+    '.overview-stats-component',
     '.profile-layout .overview-bottom',
     '.profile-layout #profile-sidebar',
     '#profile-main .game-parent',
