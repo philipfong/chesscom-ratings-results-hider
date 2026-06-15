@@ -33,6 +33,7 @@ const DEFAULT_SETTINGS = {
 
 let currentSelectors = []
 let styleEl = null
+let hideRatingsEnabled = DEFAULT_SETTINGS.hideRatings
 
 const buildSelectorList = (settings) => {
   const selectors = []
@@ -45,6 +46,7 @@ const buildSelectorList = (settings) => {
 }
 
 const applySettings = (settings) => {
+  hideRatingsEnabled = settings.hideRatings
   currentSelectors = buildSelectorList(settings)
 
   const css = currentSelectors
@@ -60,6 +62,19 @@ const applySettings = (settings) => {
   }
 }
 
+// Hide rating-change messages: the 2nd <p> in a message body when it contains "=>"
+// (e.g. "Rapid: 1240 + 9 => 1249"). Text-content matching isn't possible in CSS.
+const hideRatingChangeMessages = () => {
+  if (!hideRatingsEnabled) return
+
+  document.querySelectorAll('.message-conversation-item-body').forEach((body) => {
+    const second = body.querySelectorAll('p')[1]
+    if (second && second.textContent.includes('=>')) {
+      second.style.display = 'none'
+    }
+  })
+}
+
 const init = () => {
   // 1) Apply defaults immediately to avoid flash (hide everything)
   applySettings(DEFAULT_SETTINGS)
@@ -70,6 +85,13 @@ const init = () => {
       applySettings(settings)
     })
   }
+
+  // 3) Hide rating-change messages now and as new ones arrive
+  hideRatingChangeMessages()
+  new MutationObserver(hideRatingChangeMessages).observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  })
 }
 
 init()
