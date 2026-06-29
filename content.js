@@ -4,6 +4,7 @@ const SELECTOR_GROUPS = {
     '.cc-user-rating-default',
     '.cc-user-rating-white',
     '.game-over-message-component',
+    '.game-over-stat-card-component',
     '.game-start-message-component',
     '.rating-score-component',
     '.user-popover-divider',
