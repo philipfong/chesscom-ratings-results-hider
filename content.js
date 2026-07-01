@@ -5,6 +5,7 @@ const SELECTOR_GROUPS = {
     '.cc-user-rating-white',
     '.game-over-message-component',
     '.game-over-stat-card-component',
+    '.game-history-user-tagline-rating-diff',
     '.game-start-message-component',
     '.rating-score-component',
     '.user-popover-divider',
@@ -12,7 +13,9 @@ const SELECTOR_GROUPS = {
   ],
   results: [
     '.archive-games-result-wrapper',
-    '.archived-games-result-wrapper'
+    '.archived-games-result-wrapper',
+    '.game-result-icon',
+    '.game-result-score'
   ],
   stats: [
     '.cc-section[vsstats="false"]',
