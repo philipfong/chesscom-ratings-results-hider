@@ -18,6 +18,7 @@ const SELECTOR_GROUPS = {
     '.game-result-score'
   ],
   stats: [
+    '.all-stats-table',
     '.cc-section[vsstats="false"]',
     '.overview-stats-component',
     '.profile-layout .overview-bottom',
