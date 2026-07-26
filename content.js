@@ -9,7 +9,8 @@ const SELECTOR_GROUPS = {
     '.game-start-message-component',
     '.rating-score-component',
     '.user-popover-divider',
-    '.user-rating-component'
+    '.user-rating-component',
+    '.notification-item-container h4.cc-text-small' // Appears in Live Challenges 'Play' popover
   ],
   results: [
     '.archive-games-result-wrapper',
