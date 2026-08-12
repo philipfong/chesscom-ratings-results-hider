@@ -28,7 +28,10 @@ const SELECTOR_GROUPS = {
     '#profile-main .overview-main-stats-badges',
     '.stats-component',
     '.sidebar-section[data-cy="stats"]',
-    '.stat-item-stats-section'
+    '.stat-item-stats-section',
+    '.advanced-stats-report-card-ratingGroup', // Advanced stats that can appear post game
+    '.type-header-rating', // Hide ratings that can appear in /stats/{game-type} pages
+    '.delta-component' // Hide positive / negative rating changes
   ]
 }
 
