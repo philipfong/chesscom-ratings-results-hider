@@ -44,6 +44,12 @@ const DEFAULT_SETTINGS = {
 let currentSelectors = []
 let styleEl = null
 let hideRatingsEnabled = DEFAULT_SETTINGS.hideRatings
+let hideResultsEnabled = DEFAULT_SETTINGS.hideResults
+
+// Bolded outline marking a win on the white/black square icon. It shares an
+// element with the color icon, so display:none would hide the icon too.
+// Removing just this class leaves the other classes on the element intact.
+const WON_CLASS = 'game-history-user-tagline-won'
 
 const buildSelectorList = (settings) => {
   const selectors = []
@@ -57,6 +63,7 @@ const buildSelectorList = (settings) => {
 
 const applySettings = (settings) => {
   hideRatingsEnabled = settings.hideRatings
+  hideResultsEnabled = settings.hideResults
   currentSelectors = buildSelectorList(settings)
 
   const css = currentSelectors
@@ -85,6 +92,19 @@ const hideRatingChangeMessages = () => {
   })
 }
 
+const stripWonHighlights = () => {
+  if (!hideResultsEnabled) return
+
+  document.querySelectorAll('.' + WON_CLASS).forEach((el) => {
+    el.classList.remove(WON_CLASS)
+  })
+}
+
+const onMutation = () => {
+  hideRatingChangeMessages()
+  stripWonHighlights()
+}
+
 const init = () => {
   // 1) Apply defaults immediately to avoid flash (hide everything)
   applySettings(DEFAULT_SETTINGS)
@@ -96,9 +116,9 @@ const init = () => {
     })
   }
 
-  // 3) Hide rating-change messages now and as new ones arrive
-  hideRatingChangeMessages()
-  new MutationObserver(hideRatingChangeMessages).observe(document.documentElement, {
+  // 3) Run the JS-side hiding now and as new nodes arrive
+  onMutation()
+  new MutationObserver(onMutation).observe(document.documentElement, {
     childList: true,
     subtree: true
   })
