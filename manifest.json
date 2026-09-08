@@ -1,14 +1,42 @@
 {
   "manifest_version": 3,
   "name": "Chess.com Rating and Results Hider",
-  "version": "2.0.5",
+  "version": "2.1.1",
   "description": "Hide ratings, results, and stats on Chess.com",
-  "permissions": ["storage"],
-  "options_page": "options.html",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chesscom-ratings-results-hider@philipfong.github.io",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "content_scripts": [
     {
-      "matches": ["*://www.chess.com/*"],
-      "js": ["content.js"],
+      "matches": [
+        "*://www.chess.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_start"
     }
   ]
