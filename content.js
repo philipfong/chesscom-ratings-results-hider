@@ -24,6 +24,7 @@ const SELECTOR_GROUPS = {
     '.overview-stats-component',
     '.profile-layout .overview-bottom',
     '.profile-layout #profile-sidebar',
+    '#profile-main .stats-layout-content', // Hide stats in game type breakdowns (Rapid, Blitz, etc.)
     '#profile-main .game-parent',
     '#profile-main .overview-main-stats-badges',
     '.stats-component',
