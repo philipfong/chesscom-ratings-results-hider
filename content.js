@@ -10,7 +10,8 @@ const SELECTOR_GROUPS = {
     '.rating-score-component',
     '.user-popover-divider',
     '.user-rating-component',
-    '.notification-item-container h4.cc-text-small' // Appears in Live Challenges 'Play' popover
+    '.notification-item-container h4.cc-text-small', // Appears in Live Challenges 'Play' popover
+    '.seeking-tagline-rating' // Appears as a rating range displayed while searching for opponent
   ],
   results: [
     '.archive-games-result-wrapper',
