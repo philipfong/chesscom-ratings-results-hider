@@ -27,6 +27,7 @@ const SELECTOR_GROUPS = {
   ],
   stats: [
     '.overview-main-stats-badges', // Ratings line charts that appear on main profile page
+    '.overview-stats-component', // Ratings line charts that appear on opponent profile pages
     '#profile-main .stats-layout-content', // Stats in game type breakdowns (Rapid, Blitz, etc.)
     '.stat-item-stats-section', // Ratings that appear in stats table on main home page
     '.all-stats-table', // Main stats table
