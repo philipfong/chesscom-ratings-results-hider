@@ -15,7 +15,9 @@ const SELECTOR_GROUPS = {
     '.user-popover-divider',
     '.user-rating-component',
     '.notification-item-container h4.cc-text-small', // Appears in Live Challenges 'Play' popover
-    '.seeking-tagline-rating' // Appears as a rating range displayed while searching for opponent
+    '.seeking-tagline-rating', // Appears as a rating range displayed while searching for opponent
+    '.rating-range-select-rating', // Appears when creating a custom challenge
+    '#leaderboard-stats' // Appears on leaderboard pages
   ],
   results: [
     '.archive-games-result-wrapper',
@@ -24,20 +26,13 @@ const SELECTOR_GROUPS = {
     '.game-result-score'
   ],
   stats: [
-    '.all-stats-table',
-    '.cc-section[vsstats="false"]',
-    '.overview-stats-component',
-    '.profile-layout .overview-bottom',
-    '.profile-layout #profile-sidebar',
-    '#profile-main .stats-layout-content', // Hide stats in game type breakdowns (Rapid, Blitz, etc.)
-    '#profile-main .game-parent',
-    '#profile-main .overview-main-stats-badges',
-    '.stats-component',
-    '.sidebar-section[data-cy="stats"]',
-    '.stat-item-stats-section',
+    '.overview-main-stats-badges', // Ratings line charts that appear on main profile page
+    '#profile-main .stats-layout-content', // Stats in game type breakdowns (Rapid, Blitz, etc.)
+    '.stat-item-stats-section', // Ratings that appear in stats table on main home page
+    '.all-stats-table', // Main stats table
     '.advanced-stats-report-card-ratingGroup', // Advanced stats that can appear post game
-    '.type-header-rating', // Hide ratings that can appear in /stats/{game-type} pages
-    '.delta-component' // Hide positive / negative rating changes
+    '.stats-advanced-table', // Advanced stats appear separately on mobile layout
+    '.stats-mobile-content' // Stats content that appear on mobile layout
   ]
 }
 
