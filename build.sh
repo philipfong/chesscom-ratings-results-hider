@@ -36,8 +36,10 @@ PY
 (cd dist/firefox && zip -r -q -X "../firefox-$version.zip" .)
 (cd dist/chrome && zip -r -q -X "../chrome-$version.zip" .)
 
-rm -rf dist/firefox dist/chrome
-
 echo "Built:"
 echo "  dist/firefox-$version.zip  -> addons.mozilla.org"
 echo "  dist/chrome-$version.zip   -> Chrome Web Store"
+echo
+echo "Unzipped, for signing and for Load unpacked:"
+echo "  dist/firefox/"
+echo "  dist/chrome/"
