@@ -4,16 +4,16 @@
 
 const SELECTOR_GROUPS = {
   ratings: [
-    '.cc-user-rating-boldest',
+    '.cc-user-rating-boldest', // Appears in game lists on main profile pages
     '.cc-user-rating-default',
-    '.cc-user-rating-white',
+    '.cc-user-rating-white', // Appears in-game next to each player's names
     '.game-over-message-component',
     '.game-over-stat-card-component',
     '.game-history-user-tagline-rating-diff',
     '.game-start-message-component',
     '.rating-score-component',
     '.user-popover-divider',
-    '.user-rating-component',
+    '.user-rating-component', // Appears within popover upon clicking user name
     '.notification-item-container h4.cc-text-small', // Appears in Live Challenges 'Play' popover
     '.seeking-tagline-rating', // Appears as a rating range displayed while searching for opponent
     '.rating-range-select-rating', // Appears when creating a custom challenge
@@ -22,8 +22,8 @@ const SELECTOR_GROUPS = {
   results: [
     '.archive-games-result-wrapper',
     '.archived-games-result-wrapper',
-    '.game-result-icon',
-    '.game-result-score'
+    '.game-result-icon', // Result list column green or red square
+    '.game-result-score' // Result list column (appears as 0 or 1 usually)
   ],
   stats: [
     '.overview-main-stats-badges', // Ratings line charts that appear on main profile page
