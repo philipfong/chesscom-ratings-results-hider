@@ -48,6 +48,40 @@ let styleEl = null
 let hideRatingsEnabled = DEFAULT_SETTINGS.hideRatings
 let hideResultsEnabled = DEFAULT_SETTINGS.hideResults
 
+// Keep phone awake while using chess.com
+const isFirefoxAndroid =
+  navigator.userAgent.includes('Firefox/') && navigator.userAgent.includes('Android')
+
+let wakeLock = null
+let wakeLockPending = false
+
+const requestWakeLock = async () => {
+  if (!isFirefoxAndroid) return
+  if (wakeLock || wakeLockPending) return
+  if (document.visibilityState !== 'visible') return
+
+  wakeLockPending = true
+
+  try {
+    wakeLock = await navigator.wakeLock.request('screen')
+    // The browser drops the lock on its own when the tab is hidden.
+    wakeLock.addEventListener('release', () => {
+      wakeLock = null
+    })
+  } catch (error) {
+    // Refused by the browser, typically due to low battery. Swallow the error as there is little we can do.
+  }
+
+  wakeLockPending = false
+}
+
+const releaseWakeLock = () => {
+  if (!wakeLock) return
+
+  wakeLock.release().catch(() => {})
+  wakeLock = null
+}
+
 // Bolded outline marking a win on the white/black square icon. It shares an
 // element with the color icon, so display:none would hide the icon too.
 // Removing just this class leaves the other classes on the element intact.
@@ -123,6 +157,16 @@ const init = () => {
   new MutationObserver(onMutation).observe(document.documentElement, {
     childList: true,
     subtree: true
+  })
+
+  // 4) A wake lock only survives while the tab is visible, so retake it
+  requestWakeLock()
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      requestWakeLock()
+    } else {
+      releaseWakeLock()
+    }
   })
 }
 
