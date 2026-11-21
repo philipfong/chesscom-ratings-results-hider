@@ -17,13 +17,15 @@ const SELECTOR_GROUPS = {
     '.notification-item-container h4.cc-text-small', // Appears in Live Challenges 'Play' popover
     '.seeking-tagline-rating', // Appears as a rating range displayed while searching for opponent
     '.rating-range-select-rating', // Appears when creating a custom challenge
-    '#leaderboard-stats' // Appears on leaderboard pages
+    '#leaderboard-stats', // Appears on leaderboard pages
+    '.activity-feed-rating-row-rating' // Rating that appears in the cards of the activity feed
   ],
   results: [
     '.archive-games-result-wrapper',
     '.archived-games-result-wrapper',
     '.game-result-icon', // Result list column green or red square
-    '.game-result-score' // Result list column (appears as 0 or 1 usually)
+    '.game-result-score', // Result list column (appears as 0 or 1 usually)
+    '.game-session-card-badges' // Hides the W/L/D results in the cards of the activity feed
   ],
   stats: [
     '.overview-main-stats-badges', // Ratings line charts that appear on main profile page
